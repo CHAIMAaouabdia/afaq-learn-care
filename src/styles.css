@@ -1,104 +1,196 @@
-import { Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
 
-const links = [
-  { to: "/", label: "الرئيسية" },
-  { to: "/#services", label: "خدماتنا" },
-  { to: "/#team", label: "فريقنا" },
-  { to: "/#workflow", label: "كيف نعمل" },
-  { to: "/#faq", label: "الأسئلة الشائعة" },
-  { to: "/#contact", label: "اتصل بنا" },
-];
+@custom-variant dark (&:is(.dark *));
 
-export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 16px);
+  --radius-4xl: calc(var(--radius) + 24px);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  --font-sans: 'IBM Plex Sans Arabic', 'Tajawal', system-ui, sans-serif;
+  --font-display: 'Tajawal', 'IBM Plex Sans Arabic', system-ui, sans-serif;
 
-  return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass border-b border-border/60 shadow-sm" : "bg-transparent"
-      }`}
-    >
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-        <Link to="/" className="flex items-center gap-3">
-          <div className="grid size-11 place-items-center rounded-2xl bg-primary text-xl font-bold text-primary-foreground shadow-md">
-            آ
-          </div>
-          <div className="leading-tight">
-            <div className="text-xl font-bold tracking-tight text-foreground">آفاق</div>
-            <div className="text-[11px] text-muted-foreground">مركز صعوبات التعلم</div>
-          </div>
-        </Link>
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-soft: var(--accent-soft);
+  --color-mint: var(--mint);
+  --color-mint-soft: var(--mint-soft);
+  --color-deep: var(--deep);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
 
-        <nav className="hidden items-center gap-7 lg:flex">
-          {links.map((l) => (
-            <a
-              key={l.to + l.label}
-              href={l.to}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-            >
-              {l.label}
-            </a>
-          ))}
-        </nav>
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <Link
-            to="/login"
-            className="rounded-full px-4 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:bg-primary-soft"
-          >
-            تسجيل الدخول
-          </Link>
-          <Link
-            to="/booking"
-            className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:-translate-y-0.5"
-          >
-            احجز موعداً
-          </Link>
-        </div>
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
 
-        <button
-          className="grid size-10 place-items-center rounded-xl bg-primary-soft text-primary lg:hidden"
-          onClick={() => setOpen((o) => !o)}
-          aria-label="القائمة"
-        >
-          {open ? <X size={18} /> : <Menu size={18} />}
-        </button>
-      </div>
-
-      {open && (
-        <div className="border-t border-border bg-card lg:hidden">
-          <div className="space-y-1 px-6 py-4">
-            {links.map((l) => (
-              <a
-                key={l.to + l.label}
-                href={l.to}
-                onClick={() => setOpen(false)}
-                className="block rounded-xl px-3 py-2.5 text-sm font-medium text-foreground/80 hover:bg-primary-soft"
-              >
-                {l.label}
-              </a>
-            ))}
-            <div className="mt-3 grid grid-cols-2 gap-2">
-              <Link to="/login" className="rounded-xl border border-border px-4 py-2.5 text-center text-sm font-semibold">
-                تسجيل الدخول
-              </Link>
-              <Link to="/booking" className="rounded-xl bg-primary px-4 py-2.5 text-center text-sm font-semibold text-primary-foreground">
-                احجز موعداً
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
-    </header>
-  );
+  --shadow-soft: 0 8px 30px -10px oklch(0.55 0.12 250 / 0.15);
+  --shadow-glow: 0 20px 60px -20px oklch(0.55 0.12 250 / 0.30);
 }
+
+:root {
+  --radius: 0.875rem;
+
+  --background: oklch(0.985 0.005 250);
+  --foreground: oklch(0.22 0.04 260);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.04 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.04 260);
+
+  /* Soft trustworthy blue */
+  --primary: oklch(0.62 0.13 248);
+  --primary-foreground: oklch(0.99 0 0);
+  --primary-soft: oklch(0.95 0.03 248);
+
+  --secondary: oklch(0.96 0.015 250);
+  --secondary-foreground: oklch(0.30 0.05 260);
+
+  --muted: oklch(0.96 0.012 250);
+  --muted-foreground: oklch(0.52 0.03 255);
+
+  /* Soft purple accent */
+  --accent: oklch(0.66 0.14 295);
+  --accent-foreground: oklch(0.99 0 0);
+  --accent-soft: oklch(0.95 0.035 295);
+
+  /* Pastel green */
+  --mint: oklch(0.72 0.13 165);
+  --mint-soft: oklch(0.95 0.04 165);
+
+  --deep: oklch(0.22 0.05 260);
+
+  --destructive: oklch(0.62 0.22 25);
+  --destructive-foreground: oklch(0.99 0 0);
+
+  --border: oklch(0.92 0.012 255);
+  --input: oklch(0.93 0.012 255);
+  --ring: oklch(0.62 0.13 248);
+
+  --chart-1: oklch(0.62 0.13 248);
+  --chart-2: oklch(0.72 0.13 165);
+  --chart-3: oklch(0.66 0.14 295);
+  --chart-4: oklch(0.78 0.14 75);
+  --chart-5: oklch(0.65 0.18 15);
+
+  --sidebar: oklch(0.985 0.005 250);
+  --sidebar-foreground: oklch(0.22 0.04 260);
+  --sidebar-primary: oklch(0.62 0.13 248);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.96 0.015 250);
+  --sidebar-accent-foreground: oklch(0.22 0.04 260);
+  --sidebar-border: oklch(0.92 0.012 255);
+  --sidebar-ring: oklch(0.62 0.13 248);
+}
+
+.dark {
+  --background: oklch(0.16 0.03 260);
+  --foreground: oklch(0.96 0.01 250);
+  --card: oklch(0.22 0.04 260);
+  --card-foreground: oklch(0.96 0.01 250);
+  --popover: oklch(0.22 0.04 260);
+  --popover-foreground: oklch(0.96 0.01 250);
+  --primary: oklch(0.72 0.13 248);
+  --primary-foreground: oklch(0.16 0.03 260);
+  --primary-soft: oklch(0.30 0.06 248);
+  --secondary: oklch(0.28 0.04 260);
+  --secondary-foreground: oklch(0.96 0.01 250);
+  --muted: oklch(0.28 0.04 260);
+  --muted-foreground: oklch(0.70 0.03 255);
+  --accent: oklch(0.72 0.14 295);
+  --accent-foreground: oklch(0.16 0.03 260);
+  --accent-soft: oklch(0.30 0.07 295);
+  --mint: oklch(0.78 0.13 165);
+  --mint-soft: oklch(0.30 0.07 165);
+  --deep: oklch(0.10 0.02 260);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.72 0.13 248);
+}
+
+@layer base {
+  html {
+    direction: rtl;
+  }
+  * { border-color: var(--color-border); }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.01em; }
+}
+
+@layer utilities {
+  .glass {
+    background: color-mix(in oklab, var(--background) 70%, transparent);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+  }
+  .glass-card {
+    background: color-mix(in oklab, var(--card) 78%, transparent);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+  }
+  .gradient-soft {
+    background: linear-gradient(135deg,
+      color-mix(in oklab, var(--primary) 10%, transparent),
+      color-mix(in oklab, var(--accent) 10%, transparent) 50%,
+      color-mix(in oklab, var(--mint) 10%, transparent));
+  }
+  .gradient-text {
+    background: linear-gradient(120deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .ring-soft { box-shadow: 0 0 0 6px color-mix(in oklab, var(--primary) 8%, transparent); }
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float { animation: float-y 5s ease-in-out infinite; }
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fade-up .7s cubic-bezier(.16,1,.3,1) both; }
