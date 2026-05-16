@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LayoutDashboard } from "lucide-react";
+import { Logo } from "./Logo";
+import { useAuth, dashboardPath } from "@/lib/auth";
 
 const links = [
   { to: "/", label: "الرئيسية" },
