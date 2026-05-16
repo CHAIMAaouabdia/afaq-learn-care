@@ -32,15 +32,7 @@ export function Navbar() {
       }`}
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-        <Link to="/" className="flex items-center gap-3">
-          <div className="grid size-11 place-items-center rounded-2xl bg-primary text-xl font-bold text-primary-foreground shadow-md">
-            آ
-          </div>
-          <div className="leading-tight">
-            <div className="text-xl font-bold tracking-tight text-foreground">آفاق</div>
-            <div className="text-[11px] text-muted-foreground">مركز صعوبات التعلم</div>
-          </div>
-        </Link>
+        <Logo />
 
         <nav className="hidden items-center gap-7 lg:flex">
           {links.map((l) => (
