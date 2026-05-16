@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LayoutDashboard } from "lucide-react";
+import { Logo } from "./Logo";
+import { useAuth, dashboardPath } from "@/lib/auth";
 
 const links = [
   { to: "/", label: "الرئيسية" },
@@ -14,6 +16,7 @@ const links = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { user } = useAuth();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -29,15 +32,7 @@ export function Navbar() {
       }`}
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-        <Link to="/" className="flex items-center gap-3">
-          <div className="grid size-11 place-items-center rounded-2xl bg-primary text-xl font-bold text-primary-foreground shadow-md">
-            آ
-          </div>
-          <div className="leading-tight">
-            <div className="text-xl font-bold tracking-tight text-foreground">آفاق</div>
-            <div className="text-[11px] text-muted-foreground">مركز صعوبات التعلم</div>
-          </div>
-        </Link>
+        <Logo />
 
         <nav className="hidden items-center gap-7 lg:flex">
           {links.map((l) => (
@@ -52,18 +47,29 @@ export function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Link
-            to="/login"
-            className="rounded-full px-4 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:bg-primary-soft"
-          >
-            تسجيل الدخول
-          </Link>
-          <Link
-            to="/booking"
-            className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:-translate-y-0.5"
-          >
-            احجز موعداً
-          </Link>
+          {user ? (
+            <Link
+              to={dashboardPath(user.role)}
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25"
+            >
+              <LayoutDashboard size={16} /> لوحتي
+            </Link>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className="rounded-full px-4 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:bg-primary-soft"
+              >
+                تسجيل الدخول
+              </Link>
+              <Link
+                to="/booking"
+                className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:-translate-y-0.5"
+              >
+                احجز موعداً
+              </Link>
+            </>
+          )}
         </div>
 
         <button
