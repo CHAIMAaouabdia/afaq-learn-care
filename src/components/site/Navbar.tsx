@@ -47,18 +47,29 @@ export function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Link
-            to="/login"
-            className="rounded-full px-4 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:bg-primary-soft"
-          >
-            تسجيل الدخول
-          </Link>
-          <Link
-            to="/booking"
-            className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:-translate-y-0.5"
-          >
-            احجز موعداً
-          </Link>
+          {user ? (
+            <Link
+              to={dashboardPath(user.role)}
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25"
+            >
+              <LayoutDashboard size={16} /> لوحتي
+            </Link>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className="rounded-full px-4 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:bg-primary-soft"
+              >
+                تسجيل الدخول
+              </Link>
+              <Link
+                to="/booking"
+                className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:-translate-y-0.5"
+              >
+                احجز موعداً
+              </Link>
+            </>
+          )}
         </div>
 
         <button
