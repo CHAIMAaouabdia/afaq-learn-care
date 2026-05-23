@@ -46,7 +46,7 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-4 lg:flex">
           {user ? (
             <Link
               to={dashboardPath(user.role)}
@@ -57,16 +57,16 @@ export function Navbar() {
           ) : (
             <>
               <Link
-                to="/login"
-                className="rounded-full px-4 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:bg-primary-soft"
-              >
-                تسجيل الدخول
-              </Link>
-              <Link
                 to="/booking"
                 className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:-translate-y-0.5"
               >
                 احجز موعداً
+              </Link>
+              <Link
+                to="/login"
+                className="text-xs font-medium text-muted-foreground transition-colors hover:text-primary"
+              >
+                دخول الأعضاء
               </Link>
             </>
           )}
