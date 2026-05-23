@@ -14,6 +14,7 @@ import sp1 from "@/assets/specialist-1.jpg";
 import sp2 from "@/assets/specialist-2.jpg";
 import sp3 from "@/assets/specialist-3.jpg";
 import sp4 from "@/assets/specialist-4.jpg";
+import sp5 from "@/assets/specialist-5.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
