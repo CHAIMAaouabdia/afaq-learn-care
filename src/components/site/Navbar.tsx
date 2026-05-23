@@ -94,12 +94,12 @@ export function Navbar() {
                 {l.label}
               </a>
             ))}
-            <div className="mt-3 grid grid-cols-2 gap-2">
-              <Link to="/login" className="rounded-xl border border-border px-4 py-2.5 text-center text-sm font-semibold">
-                تسجيل الدخول
-              </Link>
+            <div className="mt-3 grid grid-cols-1 gap-2">
               <Link to="/booking" className="rounded-xl bg-primary px-4 py-2.5 text-center text-sm font-semibold text-primary-foreground">
                 احجز موعداً
+              </Link>
+              <Link to="/login" className="rounded-xl border border-border px-4 py-2.5 text-center text-xs font-medium text-muted-foreground">
+                دخول الأعضاء (اختياري)
               </Link>
             </div>
           </div>
