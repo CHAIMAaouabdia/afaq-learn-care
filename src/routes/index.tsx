@@ -371,10 +371,58 @@ function Services() {
 /* ───────────── AGE GROUPS ───────────── */
 function AgeGroups() {
   const ages = [
-    { t: "قبل التمدرس", a: "3 - 5 سنوات", c: "from-primary/20 to-primary/5", b: "border-primary/20" },
-    { t: "الابتدائي", a: "6 - 11 سنة", c: "from-mint/20 to-mint/5", b: "border-mint/20" },
-    { t: "المتوسط", a: "12 - 14 سنة", c: "from-accent/20 to-accent/5", b: "border-accent/20" },
-    { t: "الثانوي", a: "15 - 18 سنة", c: "from-primary/20 to-accent/5", b: "border-primary/20" },
+    {
+      t: "قبل التمدرس",
+      a: "3 - 5 سنوات",
+      focus: "بناء الأساس اللغوي والحسي",
+      c: "from-primary/20 to-primary/5",
+      b: "border-primary/20",
+      items: [
+        "تحفيز اللغة والنطق عبر اللعب",
+        "تنمية المهارات الحسية والحركية الدقيقة",
+        "ورشات التهيئة للقراءة والكتابة",
+        "إرشاد أبوي حول علامات التأخر النمائي",
+      ],
+    },
+    {
+      t: "الابتدائي",
+      a: "6 - 11 سنة",
+      focus: "تشخيص ومعالجة عسر التعلم",
+      c: "from-mint/20 to-mint/5",
+      b: "border-mint/20",
+      items: [
+        "تقييم عسر القراءة والكتابة والحساب",
+        "حصص أرطوفونيا فردية أسبوعية",
+        "تمارين تركيز وذاكرة عمل",
+        "تنسيق مكيّف مع المعلم والمدرسة",
+      ],
+    },
+    {
+      t: "المتوسط",
+      a: "12 - 14 سنة",
+      focus: "استراتيجيات التعلم والثقة بالنفس",
+      c: "from-accent/20 to-accent/5",
+      b: "border-accent/20",
+      items: [
+        "تقنيات تنظيم المراجعة وإدارة الوقت",
+        "دعم نفسي للمراهق وتقدير الذات",
+        "تأهيل لاضطرابات الانتباه وفرط الحركة",
+        "متابعة ولي الأمر للتغيرات السلوكية",
+      ],
+    },
+    {
+      t: "الثانوي",
+      a: "15 - 18 سنة",
+      focus: "التحضير للبكالوريا والتوجيه",
+      c: "from-primary/20 to-accent/5",
+      b: "border-primary/20",
+      items: [
+        "مرافقة نفسية لضغط الامتحانات",
+        "تكييفات بيداغوجية معتمدة للبكالوريا",
+        "اختبارات الميول والتوجيه الجامعي",
+        "ورشات إدارة القلق والثقة بالنفس",
+      ],
+    },
   ];
   return (
     <section className="mx-auto max-w-7xl px-6 py-24">
@@ -382,7 +430,7 @@ function AgeGroups() {
         <p className="mb-3 text-sm font-bold uppercase tracking-wider text-primary">حسب العمر</p>
         <h2 className="text-4xl font-extrabold lg:text-5xl">برامج لكل مرحلة</h2>
         <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-          نوفر برامج مخصصة لكل مستوى دراسي مع مراعاة خصائص النمو في كل مرحلة.
+          لكل مرحلة عمرية حاجاتها الخاصة؛ نصمّم محتوى مختلفاً يراعي النمو المعرفي والعاطفي للطفل.
         </p>
       </div>
       <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
@@ -395,10 +443,16 @@ function AgeGroups() {
           >
             <div className="text-2xl font-extrabold">{a.t}</div>
             <div className="mt-1 text-sm font-medium text-muted-foreground">{a.a}</div>
-            <ul className="mt-5 space-y-2 text-sm">
-              <li className="flex items-center gap-2"><Check size={14} className="text-mint" /> دعم مناسب للمرحلة</li>
-              <li className="flex items-center gap-2"><Check size={14} className="text-mint" /> برامج شخصية</li>
-              <li className="flex items-center gap-2"><Check size={14} className="text-mint" /> متابعة مكيفة</li>
+            <div className="mt-4 inline-flex rounded-full bg-card/70 px-3 py-1 text-[11px] font-bold text-foreground/80 ring-1 ring-border">
+              {a.focus}
+            </div>
+            <ul className="mt-5 space-y-2.5 text-sm">
+              {a.items.map((it) => (
+                <li key={it} className="flex items-start gap-2">
+                  <Check size={14} className="mt-1 shrink-0 text-mint" />
+                  <span className="leading-relaxed">{it}</span>
+                </li>
+              ))}
             </ul>
           </motion.div>
         ))}
