@@ -553,51 +553,6 @@ function FAQ() {
   );
 }
 
-/* ───────────── TESTIMONIALS ───────────── */
-function Testimonials() {
-  const tt = [
-    { n: "أم سارة", r: "ولية أمر", t: "تحسّن طفلي بشكل ملحوظ خلال 3 أشهر فقط. الفريق رائع والمتابعة احترافية." },
-    { n: "أبو أحمد", r: "ولي أمر", t: "أخيراً وجدنا مكاناً يفهم احتياجات ابننا. التشخيص كان دقيقاً والخطة العلاجية واضحة." },
-    { n: "أم ياسين", r: "ولية أمر", t: "المنصة سهلت علينا متابعة تطور ابننا يومياً، والتواصل مع المختصين سلس جداً." },
-  ];
-  return (
-    <section className="bg-secondary/40 py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-12 text-center">
-          <p className="mb-3 text-sm font-bold uppercase tracking-wider text-primary">آراء الأولياء</p>
-          <h2 className="text-4xl font-extrabold lg:text-5xl">ثقتهم هي شرفنا</h2>
-        </div>
-        <div className="grid gap-6 md:grid-cols-3">
-          {tt.map((t, i) => (
-            <motion.div
-              key={t.n}
-              initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ delay: i * 0.08 }}
-              className="rounded-3xl border border-border bg-card p-7 shadow-sm"
-            >
-              <Quote className="mb-4 text-primary/40" size={28} />
-              <p className="text-sm leading-relaxed text-foreground">{t.t}</p>
-              <div className="mt-5 flex items-center gap-3 border-t border-border pt-4">
-                <div className="grid size-10 place-items-center rounded-full bg-primary-soft font-bold text-primary">
-                  {t.n.slice(0, 1)}
-                </div>
-                <div>
-                  <div className="text-sm font-bold">{t.n}</div>
-                  <div className="text-xs text-muted-foreground">{t.r}</div>
-                </div>
-                <div className="ms-auto flex">
-                  {Array.from({ length: 5 }).map((_, k) => (
-                    <Star key={k} size={14} className="fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ───────────── PREMIUM ───────────── */
 function Premium() {
