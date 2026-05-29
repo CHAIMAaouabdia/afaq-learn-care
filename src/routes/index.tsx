@@ -354,7 +354,7 @@ function Services() {
             <h2 className="text-4xl font-extrabold lg:text-5xl">حلول متكاملة لكل حالة</h2>
           </div>
           <p className="text-muted-foreground md:justify-self-end">
-            خدمات شاملة تجمع بين المتابعة النفسية والتربوية والطبية لضمان التطور المستمر.
+            خدمات شاملة تجمع بين المتابعة الطبية والنفسية والأرطفونية والتربوية والاجتماعية.
           </p>
         </div>
 
