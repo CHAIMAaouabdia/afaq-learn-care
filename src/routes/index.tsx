@@ -639,9 +639,11 @@ function Contact() {
           </p>
           <div className="mt-8 space-y-4">
             {[
-              { icon: MapPin, l: "العنوان", v: "تلمسان، الجزائر" },
+              { icon: MapPin, l: "الولاية", v: "تلمسان — الجزائر" },
               { icon: Phone, l: "الهاتف", v: "+213 (0) 43 00 00 00", dir: "ltr" as const },
               { icon: Mail, l: "البريد الإلكتروني", v: "contact@afaq-center.dz" },
+              { icon: MessageCircle, l: "واتساب", v: "+213 (0) 5 00 00 00 00", dir: "ltr" as const },
+              { icon: Facebook, l: "صفحة فيسبوك", v: "facebook.com/afaq.center" },
             ].map((c) => (
               <div key={c.l} className="flex items-center gap-4">
                 <div className="grid size-12 place-items-center rounded-2xl bg-primary-soft text-primary">
@@ -653,14 +655,6 @@ function Contact() {
                 </div>
               </div>
             ))}
-          </div>
-          <div className="mt-8 overflow-hidden rounded-2xl border border-border">
-            <iframe
-              title="موقع المركز"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-1.35%2C34.87%2C-1.30%2C34.90&layer=mapnik"
-              className="h-56 w-full"
-              loading="lazy"
-            />
           </div>
         </div>
 
