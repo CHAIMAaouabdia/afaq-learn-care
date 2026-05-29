@@ -46,7 +46,6 @@ function LandingPage() {
       <AgeGroups />
       <WarningSigns />
       <FAQ />
-      <Testimonials />
       <Premium />
       <Contact />
     </SiteShell>
