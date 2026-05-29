@@ -158,10 +158,10 @@ function DiagnosticBanner() {
 /* ───────────── STATS ───────────── */
 function Stats() {
   const items = [
-    { v: "+500", l: "طفل تمت متابعته", c: "text-primary" },
-    { v: "12", l: "مختص دائم", c: "text-mint" },
-    { v: "98%", l: "رضا الأولياء", c: "text-accent" },
-    { v: "+8", l: "سنوات خبرة", c: "text-primary" },
+    { v: "متعدد", l: "التخصصات", c: "text-primary" },
+    { v: "حضوري", l: "تشخيص داخل المركز", c: "text-mint" },
+    { v: "فردي", l: "برنامج لكل طفل", c: "text-accent" },
+    { v: "دوري", l: "تقارير للأولياء", c: "text-primary" },
   ];
   return (
     <section className="mx-auto max-w-7xl px-6 py-16">
