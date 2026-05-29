@@ -12,7 +12,7 @@ export function Footer() {
               <span className="text-2xl font-bold text-white">آفاق</span>
             </div>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/60">
-              مركز متخصص في دعم وتأهيل الأطفال ذوي صعوبات التعلم، عسر القراءة والحساب، واضطرابات الانتباه. الجزائر — تلمسان.
+              مركز متخصص في تقديم التكفل بذوي صعوبات التعلم للطفل والمراهق. الجزائر — تلمسان.
             </p>
           </div>
 
@@ -32,7 +32,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-3"><MapPin size={16} className="text-mint" /> تلمسان، الجزائر</li>
               <li className="flex items-center gap-3"><Phone size={16} className="text-mint" /> <span dir="ltr">+213 (0) 43 00 00 00</span></li>
-              <li className="flex items-center gap-3"><Mail size={16} className="text-mint" /> contact@afaq-center.dz</li>
+              <li className="flex items-center gap-3"><Mail size={16} className="text-mint" /><span>contact@afaq-center.dz</span></li>
               <li className="flex items-center gap-3"><MessageCircle size={16} className="text-mint" /> واتساب متاح يومياً</li>
             </ul>
           </div>

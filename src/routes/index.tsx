@@ -10,11 +10,6 @@ import { SiteShell } from "@/components/site/SiteShell";
 import heroImg from "@/assets/hero-specialist.jpg";
 import aboutImg from "@/assets/about-session.jpg";
 import servicesImg from "@/assets/services-group.jpg";
-import sp1 from "@/assets/specialist-1.jpg";
-import sp2 from "@/assets/specialist-2.jpg";
-import sp3 from "@/assets/specialist-3.jpg";
-import sp4 from "@/assets/specialist-4.jpg";
-import sp5 from "@/assets/specialist-5.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -67,12 +62,11 @@ function Hero() {
             <span className="text-xs font-bold text-primary">المركز الأول المتخصص في تلمسان</span>
           </div>
           <h1 className="text-balance text-5xl font-extrabold leading-[1.1] text-foreground lg:text-7xl">
-            مركز مختص في <span className="gradient-text">ذوي صعوبات التعلم</span>
+            مركز متخصص في التكفل <span className="gradient-text">بذوي صعوبات التعلم</span>
           </h1>
           <p className="max-w-xl text-base font-semibold leading-relaxed text-foreground/80">
-            متخصصون في التكفل بـ <span className="text-primary">عسر القراءة</span> و
-            <span className="text-primary"> عسر الكتابة</span> و
-            <span className="text-primary"> عسر الحساب</span>.
+            متخصصون في التكفل بذوي صعوبات التعلم <span className="text-primary">النمائية</span> تحت سن التمدرس
+            و<span className="text-primary"> الأكاديمية</span> في سن التمدرس.
           </p>
           <p className="max-w-xl text-base leading-relaxed text-muted-foreground">
             فريق متعدد التخصصات يقدّم التشخيص الحضوري والمتابعة المنتظمة وفق أحدث الأساليب التربوية والنفسية المعتمدة علمياً.
@@ -160,12 +154,13 @@ function Stats() {
   const items = [
     { v: "متعدد", l: "التخصصات", c: "text-primary" },
     { v: "حضوري", l: "تشخيص داخل المركز", c: "text-mint" },
-    { v: "فردي", l: "برنامج لكل طفل", c: "text-accent" },
-    { v: "دوري", l: "تقارير للأولياء", c: "text-primary" },
+    { v: "فردي", l: "برامج فردية لكل حالة", c: "text-accent" },
+    { v: "جماعي", l: "تقديم برامج جماعية", c: "text-primary" },
+    { v: "دوري", l: "تقارير شهرية للأولياء", c: "text-mint" },
   ];
   return (
     <section className="mx-auto max-w-7xl px-6 py-16">
-      <div className="grid grid-cols-2 gap-4 rounded-3xl border border-border bg-card p-6 shadow-sm md:grid-cols-4 md:p-8">
+      <div className="grid grid-cols-2 gap-4 rounded-3xl border border-border bg-card p-6 shadow-sm md:grid-cols-5 md:p-8">
         {items.map((s) => (
           <div key={s.l} className="text-center">
             <div className={`text-3xl font-black md:text-4xl ${s.c}`}>{s.v}</div>
@@ -193,8 +188,8 @@ function About() {
             مركز متخصص يضع طفلك في قلب الاهتمام
           </h2>
           <p className="mb-6 text-lg leading-relaxed text-muted-foreground">
-            نختص في التكفل بذوي صعوبات التعلم وعسر القراءة والحساب واضطرابات التركيز والتواصل.
-            نقدم متابعة شخصية مستمرة وتقييماً متعدد المختصين، وخططاً علاجية مصممة فردياً لكل طفل.
+            نختص بالتكفل بذوي صعوبات التعلم النمائية والأكاديمية للأطفال من سن 3 سنوات إلى 11 سنة،
+            والمراهقين من 12 سنة إلى 18 سنة. نقدم متابعة فردية وجماعية، تقييماً شاملاً، وخططاً تكفلية علاجية.
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
             {[
@@ -221,23 +216,46 @@ function About() {
 /* ───────────── SPECIALISTS ───────────── */
 function Specialists() {
   const team = [
-    { img: sp1, role: "Orthophoniste", roleAr: "أخصائي/ة الأرطوفونيا", desc: "تشخيص ومعالجة اضطرابات النطق واللغة وصعوبات القراءة والكتابة." },
-    { img: sp2, role: "Psychologue", roleAr: "أخصائي/ة نفساني/ة عيادي/ة", desc: "تقييم نفسي، دعم سلوكي وعاطفي، ومرافقة نفسية للطفل والأسرة." },
-    { img: sp4, role: "Neurologue", roleAr: "طبيب/ة أعصاب الأطفال", desc: "تقييم الجانب العصبي للاضطرابات النمائية وفرط الحركة وتشتت الانتباه." },
-    { img: sp3, role: "أخصائي/ة تربوي/ة", roleAr: "Pédagogue spécialisé(e)", desc: "إعداد البرامج التربوية المكيفة والتنسيق مع المدرسة." },
-    { img: sp5, role: "أخصائي/ة اجتماعي/ة", roleAr: "Assistant(e) social(e)", desc: "مرافقة الأسرة والربط بين المنزل والمدرسة والمركز." },
+    {
+      role: "Orthophoniste",
+      roleAr: "أخصائي/ة الأرطوفونيا",
+      desc: "تشخيص وتقييم مهارات اللغة الاستقبالية والتعبيرية واضطرابات النطق والكلام واللغة المختلطة بصعوبات التعلم.",
+      color: "bg-primary-soft text-primary",
+    },
+    {
+      role: "Psychologue",
+      roleAr: "أخصائي/ة نفساني/ة عيادي/ة",
+      desc: "إجراء التشخيص وتقييم القدرات العقلية والمعرفية والانفعالية، وتحديد نوع الصعوبة ووضع خطة التدخل العلاجي وفقاً لذلك.",
+      color: "bg-accent-soft text-accent",
+    },
+    {
+      role: "Neuropsychiatre",
+      roleAr: "طبيب/ة نفسي/ة عصبي/ة",
+      desc: "فحص الدماغ باعتبار أن صعوبات التعلم خلل وظيفي في الدماغ، والتأكد من أنها ليست مرتبطة بأي إعاقة.",
+      color: "bg-mint-soft text-mint",
+    },
+    {
+      role: "Pédagogue spécialisé(e)",
+      roleAr: "أخصائي/ة تربوي/ة",
+      desc: "إعداد وتنفيذ البرامج التربوية المكيفة حسب احتياجات كل حالة، ومتابعة التقدم الدراسي.",
+      color: "bg-primary-soft text-primary",
+    },
+    {
+      role: "Assistant(e) social(e)",
+      roleAr: "أخصائي/ة اجتماعي/ة",
+      desc: "التنسيق بين المركز والأسرة والطاقم العامل، ودراسة الوضع الاجتماعي والأسري للحالة.",
+      color: "bg-accent-soft text-accent",
+    },
   ];
   return (
     <section id="team" className="bg-secondary/40 py-24">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-14 flex flex-col items-end justify-between gap-6 md:flex-row md:items-end">
-          <div>
-            <p className="mb-3 text-sm font-bold uppercase tracking-wider text-primary">فريقنا</p>
-            <h2 className="text-4xl font-extrabold lg:text-5xl">نخبة من المختصين</h2>
-            <p className="mt-3 max-w-xl text-muted-foreground">
-              يتم تقييم كل طفل من زوايا متعددة قبل اتخاذ أي قرار علاجي، لضمان أدق النتائج.
-            </p>
-          </div>
+        <div className="mb-14">
+          <p className="mb-3 text-sm font-bold uppercase tracking-wider text-primary">فريقنا</p>
+          <h2 className="text-4xl font-extrabold lg:text-5xl">نخبة من المختصين</h2>
+          <p className="mt-3 max-w-xl text-muted-foreground">
+            يتم تقييم كل طفل من زوايا متعددة قبل اتخاذ أي قرار علاجي، لضمان أدق النتائج.
+          </p>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {team.map((m, i) => (
@@ -245,17 +263,14 @@ function Specialists() {
               key={m.role}
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-              className="group overflow-hidden rounded-3xl border border-border bg-card transition-all hover:-translate-y-1 hover:shadow-xl"
+              className="group rounded-3xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:shadow-xl"
             >
-              <div className="aspect-[4/5] overflow-hidden">
-                <img src={m.img} alt={m.role} loading="lazy" width={640} height={800}
-                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className={`mb-5 grid size-14 place-items-center rounded-2xl ${m.color}`}>
+                <Stethoscope size={22} />
               </div>
-              <div className="p-5">
-                <div className="font-bold text-foreground">{m.role}</div>
-                <div className="text-xs font-medium text-muted-foreground">{m.roleAr}</div>
-                <div className="mt-3 text-xs leading-relaxed text-muted-foreground">{m.desc}</div>
-              </div>
+              <div className="font-bold text-foreground">{m.roleAr}</div>
+              <div className="text-xs font-medium text-muted-foreground">{m.role}</div>
+              <div className="mt-3 text-xs leading-relaxed text-muted-foreground">{m.desc}</div>
             </motion.div>
           ))}
         </div>
@@ -268,7 +283,7 @@ function Specialists() {
 function Workflow() {
   const steps = [
     { n: 1, t: "حجز موعد", d: "عبر المنصة أو الهاتف لتحديد أول زيارة." },
-    { n: 2, t: "ملء استمارة الولي", d: "معلومات أولية حول الطفل وتاريخه." },
+    { n: 2, t: "ملء استمارة الولي", d: "معلومات أولية حول الحالة." },
     { n: 3, t: "التشخيص الحضوري", d: "تقييم مباشر داخل المركز.", highlight: true },
     { n: 4, t: "تقييم المختصين", d: "اختبارات مقننة من تخصصات متعددة." },
     { n: 5, t: "اجتماع الفريق", d: "تحليل النتائج جماعياً." },
@@ -280,9 +295,6 @@ function Workflow() {
       <div className="mb-14 text-center">
         <p className="mb-3 text-sm font-bold uppercase tracking-wider text-primary">منهجيتنا</p>
         <h2 className="text-4xl font-extrabold lg:text-5xl">رحلة التغيير في 7 خطوات</h2>
-        <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-          نتبع منهجية علمية صارمة تبدأ بالتعرف على الطفل وتنتهي بدمجه الكامل في وسطه الدراسي.
-        </p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -337,7 +349,7 @@ function Services() {
             <h2 className="text-4xl font-extrabold lg:text-5xl">حلول متكاملة لكل حالة</h2>
           </div>
           <p className="text-muted-foreground md:justify-self-end">
-            خدمات شاملة تجمع بين المتابعة النفسية والتربوية والطبية لضمان التطور المستمر.
+            خدمات شاملة تجمع بين المتابعة الطبية والنفسية والأرطفونية والتربوية والاجتماعية.
           </p>
         </div>
 
@@ -509,13 +521,12 @@ function WarningSigns() {
 /* ───────────── FAQ ───────────── */
 function FAQ() {
   const items = [
-    { q: "ما هي صعوبات التعلم؟", a: "صعوبات التعلم اضطرابات نمائية عصبية تؤثر على قدرة الطفل في اكتساب القراءة أو الكتابة أو الحساب، رغم امتلاكه ذكاءً عادياً وفرص تعلم مناسبة." },
+    { q: "ما هي صعوبات التعلم النمائية؟", a: "هي اضطرابات نمائية عصبية تعيق اكتساب المهارات التي يحتاجها الطفل مثل الانتباه والإدراك والفهم، وتظهر قبل سن التمدرس." },
+    { q: "ما هي صعوبات التعلم الأكاديمية؟", a: "هي اضطرابات نمائية عصبية تعيق اكتساب المهارات التعليمية الأساسية كالكتابة والقراءة والحساب، وتظهر في سن التمدرس." },
     { q: "ما هو عسر القراءة (Dyslexie)؟", a: "عسر القراءة اضطراب نمائي عصبي يجعل تعلّم القراءة بطيئاً وغير دقيق، مع صعوبة في فك رموز الحروف والكلمات رغم الذكاء العادي." },
     { q: "ما هو عسر الكتابة (Dysgraphie)؟", a: "عسر الكتابة اضطراب نمائي عصبي يؤثر على إنتاج الكتابة: شكل الحروف، التنظيم على السطر، وسرعة النسخ، دون علاقة بالذكاء." },
     { q: "ما هو عسر الحساب (Dyscalculie)؟", a: "عسر الحساب اضطراب نمائي عصبي يصعّب فهم الأعداد والمفاهيم الرياضية وإجراء العمليات الحسابية الأساسية." },
-    { q: "اضطرابات التركيز والانتباه (TDA/H)", a: "صعوبة الحفاظ على الانتباه، التسرّع، أو فرط الحركة. تحتاج لتقييم متعدد المختصين وبرنامج تأهيلي وسلوكي مناسب." },
-    { q: "اضطرابات النطق والتواصل", a: "تشمل تأخر اللغة، صعوبات النطق، والتواصل الاجتماعي. يتكفّل بها أخصائي الأرطوفونيا ضمن خطة فردية." },
-    { q: "متى يجب زيارة المختص؟", a: "عند ملاحظة تأخر دراسي مستمر، صعوبات في القراءة أو الكتابة أو التركيز رغم الجهود المبذولة في البيت والمدرسة." },
+    { q: "متى يجب زيارة المختص النفسي؟", a: "عند ملاحظة تأخر دراسي مستمر، صعوبات في القراءة أو الكتابة أو التركيز رغم الجهود المبذولة في البيت والمدرسة." },
   ];
   const [open, setOpen] = useState<number | null>(0);
   return (
@@ -633,9 +644,9 @@ function Contact() {
       <div className="grid gap-10 lg:grid-cols-2">
         <div>
           <p className="mb-3 text-sm font-bold uppercase tracking-wider text-primary">تواصل</p>
-          <h2 className="text-4xl font-extrabold lg:text-5xl">نحن هنا للاستماع إليكم</h2>
+          <h2 className="text-4xl font-extrabold lg:text-5xl">نحن هنا من أجلكم</h2>
           <p className="mt-4 max-w-md text-muted-foreground">
-            إذا كنت تلاحظ على طفلك صعوبة في القراءة، الحساب، أو التركيز، لا تتردد في طلب استشارة أولية.
+            لا تتردد في طلب الاستشارة.
           </p>
           <div className="mt-8 space-y-4">
             {[
