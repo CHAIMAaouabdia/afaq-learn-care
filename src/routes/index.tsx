@@ -300,9 +300,6 @@ function Workflow() {
       <div className="mb-14 text-center">
         <p className="mb-3 text-sm font-bold uppercase tracking-wider text-primary">منهجيتنا</p>
         <h2 className="text-4xl font-extrabold lg:text-5xl">رحلة التغيير في 7 خطوات</h2>
-        <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-          نتبع منهجية علمية صارمة تبدأ بالتعرف على الطفل وتنتهي بدمجه الكامل في وسطه الدراسي.
-        </p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
