@@ -159,12 +159,13 @@ function Stats() {
   const items = [
     { v: "متعدد", l: "التخصصات", c: "text-primary" },
     { v: "حضوري", l: "تشخيص داخل المركز", c: "text-mint" },
-    { v: "فردي", l: "برنامج لكل طفل", c: "text-accent" },
-    { v: "دوري", l: "تقارير للأولياء", c: "text-primary" },
+    { v: "فردي", l: "برامج فردية لكل حالة", c: "text-accent" },
+    { v: "جماعي", l: "تقديم برامج جماعية", c: "text-primary" },
+    { v: "دوري", l: "تقارير شهرية للأولياء", c: "text-mint" },
   ];
   return (
     <section className="mx-auto max-w-7xl px-6 py-16">
-      <div className="grid grid-cols-2 gap-4 rounded-3xl border border-border bg-card p-6 shadow-sm md:grid-cols-4 md:p-8">
+      <div className="grid grid-cols-2 gap-4 rounded-3xl border border-border bg-card p-6 shadow-sm md:grid-cols-5 md:p-8">
         {items.map((s) => (
           <div key={s.l} className="text-center">
             <div className={`text-3xl font-black md:text-4xl ${s.c}`}>{s.v}</div>
