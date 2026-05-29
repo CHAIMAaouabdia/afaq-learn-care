@@ -12,7 +12,7 @@ export function Footer() {
               <span className="text-2xl font-bold text-white">آفاق</span>
             </div>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/60">
-              مركز متخصص في دعم وتأهيل الأطفال ذوي صعوبات التعلم، عسر القراءة والحساب، واضطرابات الانتباه. الجزائر — تلمسان.
+              مركز متخصص في تقديم التكفل بذوي صعوبات التعلم للطفل والمراهق. الجزائر — تلمسان.
             </p>
           </div>
 
