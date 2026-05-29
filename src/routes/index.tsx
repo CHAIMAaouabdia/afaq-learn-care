@@ -649,9 +649,9 @@ function Contact() {
       <div className="grid gap-10 lg:grid-cols-2">
         <div>
           <p className="mb-3 text-sm font-bold uppercase tracking-wider text-primary">تواصل</p>
-          <h2 className="text-4xl font-extrabold lg:text-5xl">نحن هنا للاستماع إليكم</h2>
+          <h2 className="text-4xl font-extrabold lg:text-5xl">نحن هنا من أجلكم</h2>
           <p className="mt-4 max-w-md text-muted-foreground">
-            إذا كنت تلاحظ على طفلك صعوبة في القراءة، الحساب، أو التركيز، لا تتردد في طلب استشارة أولية.
+            لا تتردد في طلب الاستشارة.
           </p>
           <div className="mt-8 space-y-4">
             {[
