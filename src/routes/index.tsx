@@ -67,10 +67,15 @@ function Hero() {
             <span className="text-xs font-bold text-primary">المركز الأول المتخصص في تلمسان</span>
           </div>
           <h1 className="text-balance text-5xl font-extrabold leading-[1.1] text-foreground lg:text-7xl">
-            مستقبل طفلكم يبدأ بـ <span className="gradient-text">رؤية واضحة</span>
+            مركز مختص في <span className="gradient-text">ذوي صعوبات التعلم</span>
           </h1>
-          <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
-            مركز متخصص للتكفل بذوي صعوبات التعلم. نوفر فريقاً متكاملاً من المختصين لتشخيص ومتابعة الحالات باستخدام أحدث الأساليب التربوية والنفسية.
+          <p className="max-w-xl text-base font-semibold leading-relaxed text-foreground/80">
+            متخصصون في التكفل بـ <span className="text-primary">عسر القراءة</span> و
+            <span className="text-primary"> عسر الكتابة</span> و
+            <span className="text-primary"> عسر الحساب</span>.
+          </p>
+          <p className="max-w-xl text-base leading-relaxed text-muted-foreground">
+            فريق متعدد التخصصات يقدّم التشخيص الحضوري والمتابعة المنتظمة وفق أحدث الأساليب التربوية والنفسية المعتمدة علمياً.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
