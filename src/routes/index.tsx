@@ -221,23 +221,46 @@ function About() {
 /* ───────────── SPECIALISTS ───────────── */
 function Specialists() {
   const team = [
-    { img: sp1, role: "Orthophoniste", roleAr: "أخصائي/ة الأرطوفونيا", desc: "تشخيص ومعالجة اضطرابات النطق واللغة وصعوبات القراءة والكتابة." },
-    { img: sp2, role: "Psychologue", roleAr: "أخصائي/ة نفساني/ة عيادي/ة", desc: "تقييم نفسي، دعم سلوكي وعاطفي، ومرافقة نفسية للطفل والأسرة." },
-    { img: sp4, role: "Neurologue", roleAr: "طبيب/ة أعصاب الأطفال", desc: "تقييم الجانب العصبي للاضطرابات النمائية وفرط الحركة وتشتت الانتباه." },
-    { img: sp3, role: "أخصائي/ة تربوي/ة", roleAr: "Pédagogue spécialisé(e)", desc: "إعداد البرامج التربوية المكيفة والتنسيق مع المدرسة." },
-    { img: sp5, role: "أخصائي/ة اجتماعي/ة", roleAr: "Assistant(e) social(e)", desc: "مرافقة الأسرة والربط بين المنزل والمدرسة والمركز." },
+    {
+      role: "Orthophoniste",
+      roleAr: "أخصائي/ة الأرطوفونيا",
+      desc: "تشخيص وتقييم مهارات اللغة الاستقبالية والتعبيرية واضطرابات النطق والكلام واللغة المختلطة بصعوبات التعلم.",
+      color: "bg-primary-soft text-primary",
+    },
+    {
+      role: "Psychologue",
+      roleAr: "أخصائي/ة نفساني/ة عيادي/ة",
+      desc: "إجراء التشخيص وتقييم القدرات العقلية والمعرفية والانفعالية، وتحديد نوع الصعوبة ووضع خطة التدخل العلاجي وفقاً لذلك.",
+      color: "bg-accent-soft text-accent",
+    },
+    {
+      role: "Neuropsychiatre",
+      roleAr: "طبيب/ة نفسي/ة عصبي/ة",
+      desc: "فحص الدماغ باعتبار أن صعوبات التعلم خلل وظيفي في الدماغ، والتأكد من أنها ليست مرتبطة بأي إعاقة.",
+      color: "bg-mint-soft text-mint",
+    },
+    {
+      role: "Pédagogue spécialisé(e)",
+      roleAr: "أخصائي/ة تربوي/ة",
+      desc: "إعداد وتنفيذ البرامج التربوية المكيفة حسب احتياجات كل حالة، ومتابعة التقدم الدراسي.",
+      color: "bg-primary-soft text-primary",
+    },
+    {
+      role: "Assistant(e) social(e)",
+      roleAr: "أخصائي/ة اجتماعي/ة",
+      desc: "التنسيق بين المركز والأسرة والطاقم العامل، ودراسة الوضع الاجتماعي والأسري للحالة.",
+      color: "bg-accent-soft text-accent",
+    },
   ];
   return (
     <section id="team" className="bg-secondary/40 py-24">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-14 flex flex-col items-end justify-between gap-6 md:flex-row md:items-end">
-          <div>
-            <p className="mb-3 text-sm font-bold uppercase tracking-wider text-primary">فريقنا</p>
-            <h2 className="text-4xl font-extrabold lg:text-5xl">نخبة من المختصين</h2>
-            <p className="mt-3 max-w-xl text-muted-foreground">
-              يتم تقييم كل طفل من زوايا متعددة قبل اتخاذ أي قرار علاجي، لضمان أدق النتائج.
-            </p>
-          </div>
+        <div className="mb-14">
+          <p className="mb-3 text-sm font-bold uppercase tracking-wider text-primary">فريقنا</p>
+          <h2 className="text-4xl font-extrabold lg:text-5xl">نخبة من المختصين</h2>
+          <p className="mt-3 max-w-xl text-muted-foreground">
+            يتم تقييم كل طفل من زوايا متعددة قبل اتخاذ أي قرار علاجي، لضمان أدق النتائج.
+          </p>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {team.map((m, i) => (
@@ -245,17 +268,14 @@ function Specialists() {
               key={m.role}
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-              className="group overflow-hidden rounded-3xl border border-border bg-card transition-all hover:-translate-y-1 hover:shadow-xl"
+              className="group rounded-3xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:shadow-xl"
             >
-              <div className="aspect-[4/5] overflow-hidden">
-                <img src={m.img} alt={m.role} loading="lazy" width={640} height={800}
-                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className={`mb-5 grid size-14 place-items-center rounded-2xl ${m.color}`}>
+                <Stethoscope size={22} />
               </div>
-              <div className="p-5">
-                <div className="font-bold text-foreground">{m.role}</div>
-                <div className="text-xs font-medium text-muted-foreground">{m.roleAr}</div>
-                <div className="mt-3 text-xs leading-relaxed text-muted-foreground">{m.desc}</div>
-              </div>
+              <div className="font-bold text-foreground">{m.roleAr}</div>
+              <div className="text-xs font-medium text-muted-foreground">{m.role}</div>
+              <div className="mt-3 text-xs leading-relaxed text-muted-foreground">{m.desc}</div>
             </motion.div>
           ))}
         </div>
