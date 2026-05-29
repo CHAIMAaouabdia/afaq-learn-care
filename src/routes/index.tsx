@@ -2,8 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
   Brain, BookOpen, Calculator, Ear, MessageSquare, Eye, Users, Sparkles,
-  ShieldCheck, CalendarCheck, ClipboardList, Stethoscope, UsersRound,
-  ChevronDown, Star, Quote, Check, Crown, Phone, Mail, MapPin, ArrowLeft,
+  ShieldCheck, CalendarCheck, Stethoscope, UsersRound,
+  ChevronDown, Check, Crown, Phone, Mail, MapPin, ArrowLeft, MessageCircle, Facebook,
 } from "lucide-react";
 import { useState } from "react";
 import { SiteShell } from "@/components/site/SiteShell";
@@ -46,7 +46,6 @@ function LandingPage() {
       <AgeGroups />
       <WarningSigns />
       <FAQ />
-      <Testimonials />
       <Premium />
       <Contact />
     </SiteShell>
@@ -68,10 +67,15 @@ function Hero() {
             <span className="text-xs font-bold text-primary">المركز الأول المتخصص في تلمسان</span>
           </div>
           <h1 className="text-balance text-5xl font-extrabold leading-[1.1] text-foreground lg:text-7xl">
-            مستقبل طفلكم يبدأ بـ <span className="gradient-text">رؤية واضحة</span>
+            مركز مختص في <span className="gradient-text">ذوي صعوبات التعلم</span>
           </h1>
-          <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
-            مركز متخصص للتكفل بذوي صعوبات التعلم. نوفر فريقاً متكاملاً من المختصين لتشخيص ومتابعة الحالات باستخدام أحدث الأساليب التربوية والنفسية.
+          <p className="max-w-xl text-base font-semibold leading-relaxed text-foreground/80">
+            متخصصون في التكفل بـ <span className="text-primary">عسر القراءة</span> و
+            <span className="text-primary"> عسر الكتابة</span> و
+            <span className="text-primary"> عسر الحساب</span>.
+          </p>
+          <p className="max-w-xl text-base leading-relaxed text-muted-foreground">
+            فريق متعدد التخصصات يقدّم التشخيص الحضوري والمتابعة المنتظمة وفق أحدث الأساليب التربوية والنفسية المعتمدة علمياً.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
@@ -154,10 +158,10 @@ function DiagnosticBanner() {
 /* ───────────── STATS ───────────── */
 function Stats() {
   const items = [
-    { v: "+500", l: "طفل تمت متابعته", c: "text-primary" },
-    { v: "12", l: "مختص دائم", c: "text-mint" },
-    { v: "98%", l: "رضا الأولياء", c: "text-accent" },
-    { v: "+8", l: "سنوات خبرة", c: "text-primary" },
+    { v: "متعدد", l: "التخصصات", c: "text-primary" },
+    { v: "حضوري", l: "تشخيص داخل المركز", c: "text-mint" },
+    { v: "فردي", l: "برنامج لكل طفل", c: "text-accent" },
+    { v: "دوري", l: "تقارير للأولياء", c: "text-primary" },
   ];
   return (
     <section className="mx-auto max-w-7xl px-6 py-16">
@@ -217,11 +221,11 @@ function About() {
 /* ───────────── SPECIALISTS ───────────── */
 function Specialists() {
   const team = [
-    { img: sp1, name: "د. ليلى بن منصور", role: "أخصائية الأرطوفونيا", desc: "خبيرة في اضطرابات النطق واللغة منذ 12 عاماً." },
-    { img: sp2, name: "أ. أحمد يوسفي", role: "أخصائي نفساني عيادي", desc: "متخصص في صعوبات التعلم النمائية والتعديل السلوكي." },
-    { img: sp3, name: "أ. مريم سعيدي", role: "أخصائية تربوية", desc: "إعداد البرامج التربوية المكيفة لذوي الاحتياجات." },
-    { img: sp4, name: "د. سليم قاسم", role: "طبيب أعصاب أطفال", desc: "استشاري الحالات المرتبطة بفرط الحركة وتشتت الانتباه." },
-    { img: sp5, name: "أ. نسرين حمداني", role: "أخصائية اجتماعية", desc: "مرافقة الأسر وتنسيق الدعم بين المدرسة والمنزل والمركز." },
+    { img: sp1, role: "Orthophoniste", roleAr: "أخصائي/ة الأرطوفونيا", desc: "تشخيص ومعالجة اضطرابات النطق واللغة وصعوبات القراءة والكتابة." },
+    { img: sp2, role: "Psychologue", roleAr: "أخصائي/ة نفساني/ة عيادي/ة", desc: "تقييم نفسي، دعم سلوكي وعاطفي، ومرافقة نفسية للطفل والأسرة." },
+    { img: sp4, role: "Neurologue", roleAr: "طبيب/ة أعصاب الأطفال", desc: "تقييم الجانب العصبي للاضطرابات النمائية وفرط الحركة وتشتت الانتباه." },
+    { img: sp3, role: "أخصائي/ة تربوي/ة", roleAr: "Pédagogue spécialisé(e)", desc: "إعداد البرامج التربوية المكيفة والتنسيق مع المدرسة." },
+    { img: sp5, role: "أخصائي/ة اجتماعي/ة", roleAr: "Assistant(e) social(e)", desc: "مرافقة الأسرة والربط بين المنزل والمدرسة والمركز." },
   ];
   return (
     <section id="team" className="bg-secondary/40 py-24">
@@ -238,19 +242,19 @@ function Specialists() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {team.map((m, i) => (
             <motion.div
-              key={m.name}
+              key={m.role}
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ delay: i * 0.1 }}
               className="group overflow-hidden rounded-3xl border border-border bg-card transition-all hover:-translate-y-1 hover:shadow-xl"
             >
               <div className="aspect-[4/5] overflow-hidden">
-                <img src={m.img} alt={m.name} loading="lazy" width={640} height={800}
+                <img src={m.img} alt={m.role} loading="lazy" width={640} height={800}
                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
               </div>
               <div className="p-5">
-                <div className="font-bold">{m.name}</div>
-                <div className="text-sm font-medium text-primary">{m.role}</div>
-                <div className="mt-2 text-xs leading-relaxed text-muted-foreground">{m.desc}</div>
+                <div className="font-bold text-foreground">{m.role}</div>
+                <div className="text-xs font-medium text-muted-foreground">{m.roleAr}</div>
+                <div className="mt-3 text-xs leading-relaxed text-muted-foreground">{m.desc}</div>
               </div>
             </motion.div>
           ))}
@@ -505,12 +509,13 @@ function WarningSigns() {
 /* ───────────── FAQ ───────────── */
 function FAQ() {
   const items = [
-    { q: "ما هو عسر القراءة؟", a: "عسر القراءة (Dyslexie) هو اضطراب نمائي يؤثر على قدرة الطفل في تعلم القراءة بدقة وطلاقة، رغم امتلاكه ذكاءً عادياً." },
-    { q: "ما هو عسر الحساب؟", a: "عسر الحساب (Dyscalculie) هو صعوبة محددة في إدراك المفاهيم الرياضية وإجراء العمليات الحسابية." },
-    { q: "ما هي صعوبات التعلم؟", a: "اضطرابات نمائية تؤثر على قدرة الطفل في اكتساب مهارات أكاديمية معينة كالقراءة، الكتابة، أو الحساب." },
-    { q: "متى يجب زيارة المختص؟", a: "عند ملاحظة تأخر دراسي مستمر، صعوبات في القراءة أو الكتابة أو التركيز رغم الجهود المبذولة." },
-    { q: "هل صعوبات التعلم تعني ضعف الذكاء؟", a: "إطلاقاً. كثير من الأطفال ذوي صعوبات التعلم يمتلكون ذكاءً عادياً أو فوق المتوسط، لكنهم يحتاجون لطرق تعلم مختلفة." },
-    { q: "ما هي العلامات التي يجب مراقبتها؟", a: "خلط الحروف، صعوبة الحساب، ضعف التركيز، مشاكل النطق، بطء الفهم، وضعف التواصل اللفظي." },
+    { q: "ما هي صعوبات التعلم؟", a: "صعوبات التعلم اضطرابات نمائية عصبية تؤثر على قدرة الطفل في اكتساب القراءة أو الكتابة أو الحساب، رغم امتلاكه ذكاءً عادياً وفرص تعلم مناسبة." },
+    { q: "ما هو عسر القراءة (Dyslexie)؟", a: "عسر القراءة اضطراب نمائي عصبي يجعل تعلّم القراءة بطيئاً وغير دقيق، مع صعوبة في فك رموز الحروف والكلمات رغم الذكاء العادي." },
+    { q: "ما هو عسر الكتابة (Dysgraphie)؟", a: "عسر الكتابة اضطراب نمائي عصبي يؤثر على إنتاج الكتابة: شكل الحروف، التنظيم على السطر، وسرعة النسخ، دون علاقة بالذكاء." },
+    { q: "ما هو عسر الحساب (Dyscalculie)؟", a: "عسر الحساب اضطراب نمائي عصبي يصعّب فهم الأعداد والمفاهيم الرياضية وإجراء العمليات الحسابية الأساسية." },
+    { q: "اضطرابات التركيز والانتباه (TDA/H)", a: "صعوبة الحفاظ على الانتباه، التسرّع، أو فرط الحركة. تحتاج لتقييم متعدد المختصين وبرنامج تأهيلي وسلوكي مناسب." },
+    { q: "اضطرابات النطق والتواصل", a: "تشمل تأخر اللغة، صعوبات النطق، والتواصل الاجتماعي. يتكفّل بها أخصائي الأرطوفونيا ضمن خطة فردية." },
+    { q: "متى يجب زيارة المختص؟", a: "عند ملاحظة تأخر دراسي مستمر، صعوبات في القراءة أو الكتابة أو التركيز رغم الجهود المبذولة في البيت والمدرسة." },
   ];
   const [open, setOpen] = useState<number | null>(0);
   return (
@@ -548,51 +553,6 @@ function FAQ() {
   );
 }
 
-/* ───────────── TESTIMONIALS ───────────── */
-function Testimonials() {
-  const tt = [
-    { n: "أم سارة", r: "ولية أمر", t: "تحسّن طفلي بشكل ملحوظ خلال 3 أشهر فقط. الفريق رائع والمتابعة احترافية." },
-    { n: "أبو أحمد", r: "ولي أمر", t: "أخيراً وجدنا مكاناً يفهم احتياجات ابننا. التشخيص كان دقيقاً والخطة العلاجية واضحة." },
-    { n: "أم ياسين", r: "ولية أمر", t: "المنصة سهلت علينا متابعة تطور ابننا يومياً، والتواصل مع المختصين سلس جداً." },
-  ];
-  return (
-    <section className="bg-secondary/40 py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-12 text-center">
-          <p className="mb-3 text-sm font-bold uppercase tracking-wider text-primary">آراء الأولياء</p>
-          <h2 className="text-4xl font-extrabold lg:text-5xl">ثقتهم هي شرفنا</h2>
-        </div>
-        <div className="grid gap-6 md:grid-cols-3">
-          {tt.map((t, i) => (
-            <motion.div
-              key={t.n}
-              initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ delay: i * 0.08 }}
-              className="rounded-3xl border border-border bg-card p-7 shadow-sm"
-            >
-              <Quote className="mb-4 text-primary/40" size={28} />
-              <p className="text-sm leading-relaxed text-foreground">{t.t}</p>
-              <div className="mt-5 flex items-center gap-3 border-t border-border pt-4">
-                <div className="grid size-10 place-items-center rounded-full bg-primary-soft font-bold text-primary">
-                  {t.n.slice(0, 1)}
-                </div>
-                <div>
-                  <div className="text-sm font-bold">{t.n}</div>
-                  <div className="text-xs text-muted-foreground">{t.r}</div>
-                </div>
-                <div className="ms-auto flex">
-                  {Array.from({ length: 5 }).map((_, k) => (
-                    <Star key={k} size={14} className="fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ───────────── PREMIUM ───────────── */
 function Premium() {
@@ -679,9 +639,11 @@ function Contact() {
           </p>
           <div className="mt-8 space-y-4">
             {[
-              { icon: MapPin, l: "العنوان", v: "تلمسان، الجزائر" },
+              { icon: MapPin, l: "الولاية", v: "تلمسان — الجزائر" },
               { icon: Phone, l: "الهاتف", v: "+213 (0) 43 00 00 00", dir: "ltr" as const },
               { icon: Mail, l: "البريد الإلكتروني", v: "contact@afaq-center.dz" },
+              { icon: MessageCircle, l: "واتساب", v: "+213 (0) 5 00 00 00 00", dir: "ltr" as const },
+              { icon: Facebook, l: "صفحة فيسبوك", v: "facebook.com/afaq.center" },
             ].map((c) => (
               <div key={c.l} className="flex items-center gap-4">
                 <div className="grid size-12 place-items-center rounded-2xl bg-primary-soft text-primary">
@@ -693,14 +655,6 @@ function Contact() {
                 </div>
               </div>
             ))}
-          </div>
-          <div className="mt-8 overflow-hidden rounded-2xl border border-border">
-            <iframe
-              title="موقع المركز"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-1.35%2C34.87%2C-1.30%2C34.90&layer=mapnik"
-              className="h-56 w-full"
-              loading="lazy"
-            />
           </div>
         </div>
 
