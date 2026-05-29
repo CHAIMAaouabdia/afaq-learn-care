@@ -200,7 +200,7 @@ function About() {
             {[
               { icon: ShieldCheck, t: "دعم شخصي", d: "خطة فردية لكل حالة" },
               { icon: UsersRound, t: "فريق متكامل", d: "مختصون من تخصصات متعددة" },
-              { icon: CalendarCheck, t: "متابعة دورية", d: "جلسات وتقارير منتظمة" },
+              { icon: CalendarCheck, t: "متابعة دورية شهرية", d: "جلسات وتقارير شهرية منتظمة" },
               { icon: Sparkles, t: "أساليب حديثة", d: "بروتوكولات علمية معتمدة" },
             ].map((f) => (
               <div key={f.t} className="rounded-2xl border border-border bg-card p-4">
