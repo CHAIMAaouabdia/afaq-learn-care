@@ -242,19 +242,19 @@ function Specialists() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {team.map((m, i) => (
             <motion.div
-              key={m.name}
+              key={m.role}
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ delay: i * 0.1 }}
               className="group overflow-hidden rounded-3xl border border-border bg-card transition-all hover:-translate-y-1 hover:shadow-xl"
             >
               <div className="aspect-[4/5] overflow-hidden">
-                <img src={m.img} alt={m.name} loading="lazy" width={640} height={800}
+                <img src={m.img} alt={m.role} loading="lazy" width={640} height={800}
                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
               </div>
               <div className="p-5">
-                <div className="font-bold">{m.name}</div>
-                <div className="text-sm font-medium text-primary">{m.role}</div>
-                <div className="mt-2 text-xs leading-relaxed text-muted-foreground">{m.desc}</div>
+                <div className="font-bold text-foreground">{m.role}</div>
+                <div className="text-xs font-medium text-muted-foreground">{m.roleAr}</div>
+                <div className="mt-3 text-xs leading-relaxed text-muted-foreground">{m.desc}</div>
               </div>
             </motion.div>
           ))}
