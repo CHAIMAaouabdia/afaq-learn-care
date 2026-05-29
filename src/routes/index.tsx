@@ -2,8 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
   Brain, BookOpen, Calculator, Ear, MessageSquare, Eye, Users, Sparkles,
-  ShieldCheck, CalendarCheck, ClipboardList, Stethoscope, UsersRound,
-  ChevronDown, Star, Quote, Check, Crown, Phone, Mail, MapPin, ArrowLeft,
+  ShieldCheck, CalendarCheck, Stethoscope, UsersRound,
+  ChevronDown, Check, Crown, Phone, Mail, MapPin, ArrowLeft, MessageCircle, Facebook,
 } from "lucide-react";
 import { useState } from "react";
 import { SiteShell } from "@/components/site/SiteShell";
