@@ -188,8 +188,7 @@ function About() {
             مركز متخصص يضع طفلك في قلب الاهتمام
           </h2>
           <p className="mb-6 text-lg leading-relaxed text-muted-foreground">
-            نختص بالتكفل بذوي صعوبات التعلم النمائية والأكاديمية للأطفال من سن 3 سنوات إلى 11 سنة،
-            والمراهقين من 12 سنة إلى 18 سنة. نقدم متابعة فردية وجماعية، تقييماً شاملاً، وخططاً تكفلية علاجية.
+            ذوي صعوبات التعلم النمائية والأكاديمية للأطفال والمراهقين من سن 3 سنوات إلى 17 سنة.
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
             {[
@@ -574,7 +573,7 @@ function Premium() {
     "متابعة خلال العطل",
     "تمارين منزلية متقدمة",
     "توصيات مخصصة",
-    "تقارير متقدمة",
+    "حصص علاجية إضافية",
   ];
   return (
     <section className="mx-auto max-w-7xl px-6 py-24">
@@ -608,6 +607,9 @@ function Premium() {
               <div className="grid size-14 place-items-center rounded-2xl bg-gradient-to-br from-primary to-accent">
                 <Crown size={24} />
               </div>
+            </div>
+            <div className="mb-1 text-xs text-white/50">
+              التكلفة قابلة للتعديل حسب الدراسة المستقبلية للسوق
             </div>
             <div className="flex items-end gap-2">
               <div className="text-5xl font-black">5,900</div>
