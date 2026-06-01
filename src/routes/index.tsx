@@ -608,6 +608,9 @@ function Premium() {
                 <Crown size={24} />
               </div>
             </div>
+            <div className="mb-1 text-xs text-white/50">
+              التكلفة قابلة للتعديل حسب الدراسة المستقبلية للسوق
+            </div>
             <div className="flex items-end gap-2">
               <div className="text-5xl font-black">5,900</div>
               <div className="pb-2 text-sm text-white/70">دج / شهرياً</div>
