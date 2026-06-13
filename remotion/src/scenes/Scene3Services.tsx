@@ -8,7 +8,9 @@ const services = [
   { t: "علم النفس", d: "دعم نفسي للطفل والأسرة", c: C.mint },
   { t: "بيداغوجيا", d: "خطط أكاديمية فردية", c: C.gold },
   { t: "طب نفسي", d: "متابعة طبية متخصصة", c: C.primary },
-  { t: "متابعة شهرية", d: "تقارير ومراجعات منتظمة", c: C.mint },
+  { t: "خدمة اجتماعية", d: "مرافقة الأسرة والمدرسة", c: C.mint },
+  { t: "ورشات جماعية", d: "تنمية المهارات الاجتماعية", c: C.accent },
+  { t: "متابعة شهرية", d: "تقارير ومراجعات منتظمة", c: C.gold },
 ];
 
 export const Scene3Services: React.FC = () => {
@@ -16,15 +18,15 @@ export const Scene3Services: React.FC = () => {
   const { fps } = useVideoConfig();
   const sH = spring({ frame: f - 5, fps, config: { damping: 18 } });
   return (
-    <AbsoluteFill style={{ direction: "rtl", fontFamily: tajawal, color: C.ink, padding: 100 }}>
+    <AbsoluteFill style={{ direction: "rtl", fontFamily: tajawal, color: C.ink, padding: "80px 100px", display: "flex", flexDirection: "column", gap: 40 }}>
       <Bg tone="dark" />
       <div style={{ opacity: sH, transform: `translateY(${interpolate(sH, [0, 1], [20, 0])}px)` }}>
-        <div style={{ fontSize: 28, color: C.primary, fontWeight: 700 }}>خدماتنا</div>
-        <div style={{ fontSize: 80, fontWeight: 800, marginTop: 8 }}>تكفل متكامل ومتعدد الاختصاصات</div>
+        <div style={{ fontSize: 28, color: C.primary, fontWeight: 700, letterSpacing: 2 }}>خدماتنا</div>
+        <div style={{ fontSize: 76, fontWeight: 800, marginTop: 10 }}>تكفل متكامل ومتعدد الاختصاصات</div>
       </div>
-      <div style={{ marginTop: 60, display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 28 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 22, flex: 1 }}>
         {services.map((s, i) => (
-          <Sequence key={i} from={20 + i * 6}>
+          <Sequence key={i} from={15 + i * 5}>
             <Card t={s.t} d={s.d} c={s.c} />
           </Sequence>
         ))}
@@ -40,12 +42,13 @@ const Card: React.FC<{ t: string; d: string; c: string }> = ({ t, d, c }) => {
   return (
     <div style={{
       opacity: s, transform: `translateY(${interpolate(s, [0, 1], [40, 0])}px) scale(${interpolate(s, [0, 1], [0.95, 1])})`,
-      padding: 36, borderRadius: 28, minHeight: 220,
-      background: "rgba(255,255,255,0.04)", border: `1px solid ${C.line}`,
+      padding: 28, borderRadius: 22,
+      background: "rgba(255,255,255,0.05)", border: `1px solid ${C.line}`,
+      display: "flex", flexDirection: "column", gap: 14,
     }}>
-      <div style={{ width: 60, height: 60, borderRadius: 16, background: `linear-gradient(135deg, ${c}, ${c}80)`, marginBottom: 22 }} />
-      <div style={{ fontSize: 40, fontWeight: 800 }}>{t}</div>
-      <div style={{ fontSize: 24, color: C.muted, marginTop: 10 }}>{d}</div>
+      <div style={{ width: 52, height: 52, borderRadius: 14, background: `linear-gradient(135deg, ${c}, ${c}80)` }} />
+      <div style={{ fontSize: 32, fontWeight: 800 }}>{t}</div>
+      <div style={{ fontSize: 20, color: C.muted, lineHeight: 1.5 }}>{d}</div>
     </div>
   );
 };
