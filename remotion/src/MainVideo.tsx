@@ -8,22 +8,22 @@ import { Scene4Workflow } from "./scenes/Scene4Workflow";
 import { Scene5Platform } from "./scenes/Scene5Platform";
 import { Scene6Tech } from "./scenes/Scene6Tech";
 
-const T = () => <TransitionSeries.Transition presentation={fade()} timing={springTiming({ config: { damping: 200 }, durationInFrames: 18 })} />;
+const timing = springTiming({ config: { damping: 200 }, durationInFrames: 18 });
 
 export const MainVideo: React.FC = () => {
   return (
     <AbsoluteFill>
       <TransitionSeries>
         <TransitionSeries.Sequence durationInFrames={270}><Scene1Hero /></TransitionSeries.Sequence>
-        <T />
+        <TransitionSeries.Transition presentation={fade()} timing={timing} />
         <TransitionSeries.Sequence durationInFrames={300}><Scene2About /></TransitionSeries.Sequence>
-        <T />
+        <TransitionSeries.Transition presentation={fade()} timing={timing} />
         <TransitionSeries.Sequence durationInFrames={300}><Scene3Services /></TransitionSeries.Sequence>
-        <T />
+        <TransitionSeries.Transition presentation={fade()} timing={timing} />
         <TransitionSeries.Sequence durationInFrames={300}><Scene4Workflow /></TransitionSeries.Sequence>
-        <T />
+        <TransitionSeries.Transition presentation={fade()} timing={timing} />
         <TransitionSeries.Sequence durationInFrames={310}><Scene5Platform /></TransitionSeries.Sequence>
-        <T />
+        <TransitionSeries.Transition presentation={fade()} timing={timing} />
         <TransitionSeries.Sequence durationInFrames={400}><Scene6Tech /></TransitionSeries.Sequence>
       </TransitionSeries>
     </AbsoluteFill>
